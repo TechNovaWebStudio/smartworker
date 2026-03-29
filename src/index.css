@@ -1,0 +1,24 @@
+ :root {
+   --primary: #244cec;
+   --primary-dark: #1a3bb8;
+   --accent: #7000ff;
+   --bg: #ffffff;
+   --dark: #0a0c10;
+   --gray: #64748b;
+   --glass: rgba(255, 255, 255, 0.7);
+ }
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+ }
+
+ body {
+   width: 100%;
+   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+   background-color: var(--bg);
+   color: var(--dark);
+   overflow-x: hidden;
+ }

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christine Smith - Resume</title>
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary-orange: #f5b88f;
+            --accent-orange: #f47b20;
+            --light-grey: #e8e8e8;
+            --text-dark: #333;
+        }
+
+        .resume-page {
+            background: #fff;
+            width: 850px;
+            min-height: 1100px;
+            box-shadow: 0 0 20px rgba(212, 210, 210, 0.5);
+            position: relative;
+            overflow: hidden;
+            margin: 0px auto;
+        }
+
+        /* Header Section */
+        .resume-page header {
+            display: flex;
+            align-items: center;
+            padding: 50px 40px 30px;
+        }
+
+        .resume-page .profile-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .resume-page .profile-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .resume-page h1{
+            text-transform: capitalize;
+        }
+
+        .resume-page .orange-banner {
+            background-color: var(--primary-orange);
+            padding: 30px 40px 30px 90px;
+            margin-left: -80px;
+            border-radius: 0 50px 50px 0;
+            flex-grow: 1;
+        }
+
+        .resume-page .orange-banner h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: #000;
+        }
+
+        .resume-page .contact-info p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #222;
+        }
+
+        /* Main Content Grid */
+        .resume-page .content-wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Left Column */
+        .resume-page .left-side {
+            background-color: var(--light-grey);
+            width: 38%;
+            padding: 40px 30px;
+            border-radius: 0 60px 0 0;
+            min-height: 800px;
+        }
+
+        /* Right Column */
+        .resume-page .right-side {
+            width: 62%;
+            padding: 40px 40px;
+        }
+
+        .resume-page h2 {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ccc;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .resume-page p, li {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .resume-page section { margin-bottom: 35px; }
+
+        /* Tech Skills Custom Bars */
+        .resume-page .skill-group { margin-bottom: 15px; }
+        .resume-page .skill-name { font-size: 0.85rem; font-weight: bold; }
+        .resume-page .bar-bg {
+            background: #ccc;
+            height: 10px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .resume-page .bar-fill {
+            background: var(--accent-orange);
+            height: 100%;
+            width: 0%; /* Animated via JS */
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Lists */
+        .resume-page ul { list-style: none; }
+        .resume-page ul li::before {
+            content: "•";
+            color: var(--accent-orange);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .resume-page .right-side ul { padding-left: 20px; }
+
+        /* Print Button - Hidden when printing */
+        .resume-page .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        @media print {
+            .resume-page { box-shadow: none; width: 100%; }
+            .print-btn { display: none; }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .resume-page {
+                width: 95%;
+                min-height: auto;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .profile-container {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 15px;
+            }
+
+            .orange-banner {
+                padding: 20px;
+                margin-left: 0;
+                border-radius: 20px;
+            }
+
+            .orange-banner h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-info p {
+                font-size: 0.85rem;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .left-side,
+            .right-side {
+                width: 100%;
+                padding: 20px;
+                border-radius: 0;
+            }
+
+            .left-side {
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            p, li {
+                font-size: 0.85rem;
+            }
+
+            .skill-name {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .profile-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .orange-banner h1 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info p {
+                font-size: 0.8rem;
+            }
+
+            .skill-name {
+                font-size: 0.75rem;
+            }
+
+            p, li {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <button class="print-btn" onclick="window.print()">Download as PDF</button> -->
+
+    <div class="resume-page">
+        <header>
+            <div class="profile-container">
+                <img src= {{photo}} alt="Christine Smith">
+            </div>
+            <div class="orange-banner">
+                <h1>{{name}}</h1>
+                <div class="contact-info">
+                    <p>{{phone}}</p>
+                    <p>{{email}}</p>
+                    <p>{{website}}</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <aside class="left-side">
+                <section>
+                    <h2>Summary</h2>
+                    <p>{{summary}}</p>
+                </section>
+
+                <section>
+                    <h2>Tech Skills</h2>
+                    <div class="skill-group">
+                        <div class="skill-name">Adobe Photoshop</div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="95%"></div></div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-name">Adobe InDesign</div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="85%"></div></div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-name">Adobe Illustrator</div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="80%"></div></div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-name">Adobe Fresco</div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="70%"></div></div>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="right-side">
+                <section>
+                    <h2>Skills</h2>
+                    <ul>
+                        <li>Ability to turnaround artwork quickly on short notice.</li>
+                        <li>Exceptional eye for and attention to detail.</li>
+                        <li>Ability to take direction and work independently.</li>
+                        <li>Knowledge of email marketing and HTML formatting.</li>
+                        <li>Working knowledge of HTML5, CSS3, jQuery, PHP, XML.</li>
+                        <li>Proficiency in Photoshop, Illustrator and InDesign.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Experience</h2>
+                    <p><strong>GRAPHIC WEB DESIGNER</strong> | 05/2013 to 05/2019</p>
+                    <p><em>LUNA, LOS ANGELES</em></p>
+                    <ul>
+                        <li>Design & develop online brand creative pieces including landing pages, banners and emails.</li>
+                        <li>Create comps for new and updated web pages for social and ecommerce partners.</li>
+                        <li>Create and code display banner ads for partner websites.</li>
+                        <li>Stay abreast of industry-wide changes in design philosophy and any new tools/technologies.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <p><strong>CALIFORNIA STATE UNIVERSITY</strong>, LOS ANGELES</p>
+                    <p>Bachelor's Degree in Graphic Design</p>
+                </section>
+            </main>
+        </div>
+    </div>
+    <!-- <div class="resume-page"></div> -->
+
+    <script>
+        // Animate skill bars on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const skillBars = document.querySelectorAll('.bar-fill');
+            setTimeout(() => {
+                skillBars.forEach(bar => {
+                    const targetWidth = bar.getAttribute('data-width');
+                    bar.style.width = targetWidth;
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

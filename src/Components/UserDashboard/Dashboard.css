@@ -1,0 +1,38 @@
+/* --- Main Content Elements --- */
+.dashboard {
+    margin: 0 auto;
+    width: 100%;
+}
+.dashboard .hero-panel {
+    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+    color: white;
+    border-radius: 32PX;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    grid-column: span 2;
+    margin-bottom: 24px;
+}
+
+.dashboard .hero-panel h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.dashboard .hero-panel p {
+    opacity: 0.9;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+
+.dashboard .btn-white {
+    background: white;
+    color: #7C3AED;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}

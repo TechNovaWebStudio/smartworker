@@ -1,0 +1,217 @@
+/* ===============================
+   PORTFOLIO PAGE
+================================ */
+.portfolio-page {
+  color: #333;
+  background-color: #fff;
+}
+
+/* Header */
+.portfolio-page .portfolio-header {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+}
+
+.portfolio-page h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.portfolio-page .subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* ===============================
+   FILTER
+================================ */
+.portfolio-page .filter-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+.portfolio-page .filter-btn {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.portfolio-page .filter-btn:hover,
+.portfolio-page .filter-btn.active {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+/* ===============================
+   GRID
+================================ */
+.portfolio-page .portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   CARD
+================================ */
+.portfolio-page .card {
+  position: relative;
+  /* REQUIRED for overlay */
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-page .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Thumbnail */
+.portfolio-page .thumbnail {
+  width: 100%;
+   
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: #eee;
+}
+
+/* Card info */
+.portfolio-page .card-info {
+  padding: 12px 10px;
+}
+
+.portfolio-page .card-title {
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.portfolio-page .card-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #6d6e71;
+}
+
+.portfolio-page .stats-left span {
+  margin-right: 12px;
+}
+
+.portfolio-page .stats-left i {
+  margin-right: 4px;
+  color: #aaa;
+}
+
+/* Badges */
+.portfolio-page .badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-page .badge-free {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.portfolio-page .badge-paid {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+/* ===============================
+   OVERLAY
+================================ */
+.portfolio-page .overlay {
+  position: absolute;
+  inset: 0;
+    height: 180px;
+
+  background: rgba(139, 61, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  /* prevents hover flicker */
+}
+
+/* SHOW OVERLAY ON CARD HOVER */
+.portfolio-page .card:hover .overlay {
+  opacity: 1;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.portfolio-page .overlay-btn {
+  width: 160px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  pointer-events: auto;
+  /* clickable */
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.portfolio-page .overlay-btn:hover {
+  transform: scale(1.05);
+}
+
+.portfolio-page .edit-btn {
+  background: #fff;
+  color: #8b3dff;
+}
+
+.portfolio-page .preview-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* ===============================
+   ICON BAR
+================================ */
+.portfolio-page .icon-bar {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  color: #fff;
+  pointer-events: auto;
+}
+
+.portfolio-page .icon-bar i {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.portfolio-page .icon-bar i:hover {
+  transform: scale(1.3);
+}

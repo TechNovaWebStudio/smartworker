@@ -1,0 +1,47 @@
+/* --- MAIN LAYOUT --- */
+.user-dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc;
+}
+
+.rigth-wrapper {
+    width: 100%;
+    /* Default for Desktop */
+    margin-left: 260px; 
+    margin-top: 60px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    min-height: calc(100vh - 60px);
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablets (1024px and below) */
+@media (max-width: 1024px) {
+    .rigth-wrapper {
+        margin-left: 200px; /* Slimmer sidebar */
+        padding: 25px;
+    }
+}
+
+/* Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+    .rigth-wrapper {
+        margin-left: 0; /* Sidebar becomes an overlay or hidden */
+        padding: 20px;
+        width: 100%;
+    }
+    
+    /* Ensure top margin is consistent if Navbar is fixed */
+    .rigth-wrapper {
+        margin-top: 70px;
+    }
+}
+
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+    .rigth-wrapper {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,167 @@
+.full-navbar {}
+
+/* --- Navbar Styles --- */
+.full-navbar .navbar {
+    height: 70px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-shadow: 0 1px 3px rgba(207, 207, 207, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.full-navbar .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.full-navbar .menu-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #1e293b;
+    transition: color 0.2s;
+}
+
+.full-navbar .menu-btn:hover {
+    color: #4f46e5;
+}
+
+.full-navbar .logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #4f46e5;
+    letter-spacing: -0.5px;
+}
+
+.full-navbar .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.full-navbar .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.full-navbar .user-profile:hover {
+    background: #f1f5f9;
+}
+
+.full-navbar .profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e2e8f0;
+}
+
+.full-navbar .user-info .name {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* --- Sidebar Styles --- */
+.full-navbar .sidebar {
+    position: fixed;
+    left: -250px;
+    top: 70px;
+    width: 250px;
+    height: calc(100vh - 70px);
+    background: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    padding: 1.5rem;
+    z-index: 999;
+}
+
+.full-navbar .sidebar.active {
+    left: 0;
+}
+
+.full-navbar .sidebar-links {
+    list-style: none;
+}
+
+.full-navbar .sidebar-links li {
+    margin-bottom: 0.5rem;
+}
+
+.full-navbar .sidebar-links a {
+    text-decoration: none;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.full-navbar .sidebar-links a:hover {
+    background: #eff6ff;
+    color: #4f46e5;
+}
+
+/* Main Content Area */
+.full-navbar .main-content {
+    margin-top: 9px;
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+    
+}
+
+.full-navbar .nav-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.full-navbar .text-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.full-navbar .btn-blue {
+  background: var(--accent-blue);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+} 
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #c7c7c7;
+}
+
+.zoom {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+/* Responsive tweak: push content when sidebar is open on large screens */
+@media (min-width: 1024px) {
+    .full-navbar .sidebar.active ~ .main-content {
+        /* margin-left: 250px; */
+    }
+}

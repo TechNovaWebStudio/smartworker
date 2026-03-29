@@ -1,0 +1,246 @@
+.draft-project .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.draft-project .page-title h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.draft-project .page-title p {
+    color: #64748B;
+    font-size: 15px;
+}
+
+.draft-project .btn-primary {
+    background: #2D5CFE;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(45, 92, 254, 0.2);
+    transition: 0.2s;
+}
+
+.draft-project .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.draft-project .section-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.draft-project .section-label h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.draft-project .see-all {
+    color: #2D5CFE;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+}
+.draft-project  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 50px;
+}
+.draft-project .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.draft-project .bento-card {
+    background: rgba(255, 255, 255, 0.7); /* Glass fallback */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 30px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.draft-project .bento-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.draft-project .span-2 {
+    grid-column: span 2;
+}
+
+.draft-project.btn-white:hover {
+    transform: scale(1.05);
+}
+
+/* Visual Elements */
+.draft-project .tpl-blue-side {
+    width: 35%;
+    height: 100%;
+    background: #2D5CFE;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+}
+
+.draft-project .yellow-accent-blob {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #FACC15;
+    border-radius: 50%;
+    bottom: -30px;
+    left: -30px;
+}
+
+
+
+.draft-project .bento-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 24px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.draft-project .bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border-color: #2D5CFE;
+}
+
+.draft-project .preview-box {
+    height: 160px;
+    background: #F8FAFC;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.draft-project .status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.draft-project .status-active { background: #DCFCE7; color: #166534; }
+.draft-project .status-draft { background: #FEF3C7; color: #92400E; }
+
+.draft-project .yellow-blob {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #FACC15;
+    border-radius: 50%;
+    bottom: -20px;
+    left: -20px;
+}
+
+
+/* --- Unified Card Style --- */
+.draft-project .card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.draft-project .card:hover {
+    border-color: #2D5CFE;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.draft-project .resume-preview {
+    height: 240px;
+    background: #F1F5F9;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.draft-project .card-footer {
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #F8FAFC;
+}
+
+.draft-project .res-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.draft-project .res-meta {
+    font-size: 12px;
+    color: #64748B;
+    display: block;
+}
+
+.draft-project .blank-state {
+    border: 2px dashed #CBD5E1;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #64748B;
+    font-weight: 500;
+    height: 240px;
+}
+
+.draft-project .tab-row {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #E2E8F0;
+    margin-bottom: 25px;
+}
+
+.draft-project .tab-item {
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: #64748B;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.draft-project .tab-item.active {
+    color: #2D5CFE;
+    border-bottom-color: #2D5CFE;
+}
+
+.draft-project .tab-count {
+    background: #EEF2FF;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-left: 4px;
+    font-size: 11px;
+}

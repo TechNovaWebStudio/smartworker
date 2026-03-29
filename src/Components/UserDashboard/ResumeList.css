@@ -1,0 +1,291 @@
+/* --- CONTAINER --- */
+.resume-container {
+    width: 100%;
+}
+
+/* --- TOP ROW --- */
+.resume-container .top-row {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.resume-container h1 {
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #000;
+    text-align: center;
+}
+
+.resume-container p {
+    font-size: 13px;
+    color: #838181;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+/* --- FILTER ROW --- */
+.filter-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 4px;
+}
+
+.filter-chip {
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+    border-color: #1a73e8;
+    color: #1a73e8;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.2);
+}
+
+/* --- GRID --- */
+.resume-container .resume-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+/* --- CARD --- */
+.resume-container .resume-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-container .resume-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+}
+
+/* --- IMAGE PREVIEW --- */
+.resume-container .preview-box {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-container .preview-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+/* --- OVERLAY --- */
+.resume-container .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(139, 61, 255, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resume-card:hover .overlay {
+    opacity: 1;
+}
+
+/* --- BUTTONS --- */
+.resume-container .overlay-btn {
+    width: 160px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.resume-container .edit-btn {
+    background: #fff;
+    color: #8b3dff;
+}
+
+.resume-container .preview-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/* --- ICON BAR --- */
+.resume-container .icon-bar {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    color: #fff;
+}
+
+.resume-container .icon-bar i:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/* --- CARD CONTENT --- */
+.resume-container .card-content {
+    padding: 18px;
+}
+
+.resume-container .category-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: #007bff;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.resume-container .card-title {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+}
+
+.resume-container .card-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #6d6e71;
+}
+
+.resume-container .stats-left span {
+    margin-right: 12px;
+}
+
+.resume-container .stats-left i {
+    margin-right: 4px;
+    color: #aaa;
+}
+
+/* --- BADGES --- */
+.resume-container .badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resume-container .badge-free {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.resume-container .badge-paid {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.resume-container .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.resume-container .file-info {
+    font-size: 12px;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.resume-container .pdf-icon {
+    color: #e50914;
+    background-color: #ffffff;
+    border-radius: 2px;
+    font-size: 16px;
+}
+
+/* --- RESPONSIVE ALIGNMENT --- */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .resume-container .resume-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 768px) {
+    .resume-container .resume-grid {
+        grid-template-columns: 1fr; /* 1 card per row */
+        gap: 20px;
+        margin: 20px auto;
+    }
+
+    .preview-box {
+        width: 100%;
+        height: 200px; /* optional: reduce height for mobile */
+    }
+
+    .filter-row {
+        overflow-x: auto;
+        gap: 5px;
+    }
+
+    .filter-chip {
+        flex-shrink: 0;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+    .resume-container .resume-grid {
+        grid-template-columns: 1fr; /* still 1 card per row */
+        gap: 15px;
+        margin: 15px auto;
+    }
+
+    .preview-box {
+        height: 150px;
+    }
+
+    .card-title {
+        font-size: 0.85rem;
+    }
+
+    .filter-chip {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}

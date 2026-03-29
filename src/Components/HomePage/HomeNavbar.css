@@ -1,0 +1,153 @@
+:root {
+    --primary: #244cec;
+    --dark: #0a0c10;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+/* --- NAV BAR --- */
+.home-navbar {
+    position: fixed;
+    top: 10px;
+    left: 5%;
+    width: 90%;
+    height: 70px;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.home-navbar .logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.home-navbar .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.home-navbar .nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.home-navbar .nav-links a:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.home-navbar .nav-btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-navbar .login-link {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.home-navbar .btn {
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 100;
+    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.home-navbar .btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 15px 30px rgba(36, 76, 236, 0.3);
+}
+
+/* --- HAMBURGER MENU --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark);
+    transition: 0.3s;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .home-navbar {
+        padding: 0 20px;
+    }
+
+    .home-navbar .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--glass);
+        backdrop-filter: blur(15px);
+        border-radius: 0 0 20px 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .home-navbar .nav-links.mobile-active {
+        max-height: 300px; /* Adjust if more links */
+    }
+
+    .home-navbar .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .home-navbar .nav-btns {
+        gap: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 500px) {
+    .home-navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .home-navbar .nav-btns {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
