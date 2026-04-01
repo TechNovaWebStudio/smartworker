@@ -7,6 +7,7 @@ footer {
 
 .footer-grid {
     display: grid;
+    /* Default for Desktop */
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 50px;
     margin-bottom: 60px;
@@ -35,6 +36,7 @@ footer {
 
 .footer-links {
     list-style: none;
+    padding: 0; /* Ensure no default padding interferes */
 }
 
 .footer-links li {
@@ -72,6 +74,55 @@ footer {
     transition: 0.3s;
 }
 
+.social-icons a:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* --- RESPONSIVENESS --- */
+
+/* For Tablets (Under 1024px) */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Switch to 2x2 grid */
+        gap: 40px;
+    }
+    
+    footer {
+        padding: 60px 5% 30px;
+    }
+}
+
+/* For Mobile Phones (Under 600px) */
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Single column stack */
+        gap: 30px;
+        text-align: center; /* Optional: centers text for mobile feel */
+    }
+
+    .social-icons {
+        justify-content: center; /* Center icons if text is centered */
+    }
+
+    .footer-grid > div:last-child div {
+        justify-content: center; /* Center the newsletter input/button */
+    }
+    
+    footer {
+        padding: 40px 20px;
+    }
+}
+
+/* --- OTHER ELEMENTS (Keep as is) --- */
 .hero-right {
     flex: 1;
     position: relative;
@@ -110,15 +161,8 @@ footer {
 }
 
 @keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 .cta-group {
@@ -132,17 +176,4 @@ footer {
     font-weight: 700;
     text-decoration: none;
     transition: 0.3s;
-}
-
-.social-icons a:hover {
-    background: var(--primary);
-    transform: translateY(-5px);
-}
-
-.copyright {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 30px;
-    text-align: center;
-    color: #64748b;
-    font-size: 13px;
 }

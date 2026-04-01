@@ -1,19 +1,23 @@
 :root {
     --primary: #244cec;
     --dark: #0a0c10;
-    --glass: rgba(255, 255, 255, 0.1);
+    --glass: rgba(255, 255, 255, 0.7); /* Slightly increased opacity for better readability on mobile */
+    --glass-border: rgba(255, 255, 255, 0.3);
 }
 
-/* --- NAV BAR --- */
+/* --- NAV BAR BASE --- */
 .home-navbar {
     position: fixed;
     top: 10px;
-    left: 5%;
+    left: 50%;
+    transform: translateX(-50%); /* Better centering method */
     width: 90%;
+    max-width: 1400px; /* Prevents stretching on ultra-wide screens */
     height: 70px;
     background: var(--glass);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
     z-index: 1000;
     display: flex;
@@ -21,28 +25,32 @@
     justify-content: space-between;
     padding: 0 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 .home-navbar .logo {
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--primary);
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .home-navbar .nav-links {
     display: flex;
     gap: 30px;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .home-navbar .nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 15px;
     transition: 0.3s;
     opacity: 0.8;
@@ -56,7 +64,7 @@
 .home-navbar .nav-btns {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .home-navbar .login-link {
@@ -64,90 +72,104 @@
     color: var(--dark);
     font-weight: 600;
     font-size: 14px;
-    margin-right: 20px;
 }
 
 .home-navbar .btn {
-    padding: 14px 30px;
+    padding: 10px 24px;
     border-radius: 12px;
-    font-weight: 100;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: none;
     font-size: 14px;
     text-decoration: none;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .home-navbar .btn-primary {
     background: var(--primary);
     color: white;
-    box-shadow: 0 15px 30px rgba(36, 76, 236, 0.3);
+    box-shadow: 0 8px 20px rgba(36, 76, 236, 0.2);
 }
 
-/* --- HAMBURGER MENU --- */
+.home-navbar .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(36, 76, 236, 0.3);
+}
+
+/* --- HAMBURGER --- */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    padding: 5px;
+    z-index: 1001;
 }
 
 .hamburger .bar {
-    width: 25px;
-    height: 3px;
+    width: 22px;
+    height: 2px;
     background-color: var(--dark);
     transition: 0.3s;
+    border-radius: 2px;
 }
 
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 900px) {
-    .home-navbar {
-        padding: 0 20px;
-    }
+/* --- RESPONSIVE LOGIC --- */
 
+/* Tablet & Mobile (Below 992px) */
+@media (max-width: 992px) {
     .home-navbar .nav-links {
         position: absolute;
-        top: 70px;
+        top: 80px; /* Gap from the main bar */
         left: 0;
         width: 100%;
         flex-direction: column;
         background: var(--glass);
-        backdrop-filter: blur(15px);
-        border-radius: 0 0 20px 20px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
     .home-navbar .nav-links.mobile-active {
-        max-height: 300px; /* Adjust if more links */
+        max-height: 400px;
+        padding: 20px 0;
     }
 
     .home-navbar .nav-links li {
         margin: 15px 0;
-        text-align: center;
-    }
-
-    .home-navbar .nav-btns {
-        gap: 10px;
     }
 
     .hamburger {
         display: flex;
     }
+
+    /* Hide the text link on smaller screens to save space */
+    .home-navbar .login-link {
+        display: none; 
+    }
 }
 
-@media (max-width: 500px) {
+/* Small Mobile (Below 480px) */
+@media (max-width: 480px) {
     .home-navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 20px;
+        width: 95%;
+        padding: 0 15px;
     }
 
-    .home-navbar .nav-btns {
-        width: 100%;
-        justify-content: center;
-        margin-top: 10px;
+    .home-navbar .logo span {
+        font-size: 18px; /* Slightly smaller text for small screens */
+    }
+
+    .home-navbar .btn {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }

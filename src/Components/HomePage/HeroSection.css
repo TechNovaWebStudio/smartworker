@@ -1,3 +1,10 @@
+/* --- VARIABLES (Ensure these are defined in your global CSS) --- */
+:root {
+    --primary: #244cec;
+    --accent: #a855f7;
+    --gray: #64748b;
+}
+
 /* --- HERO SECTION --- */
 .hero {
     min-height: 100vh;
@@ -6,12 +13,14 @@
     justify-content: space-between;
     padding: 120px 8% 60px;
     background: radial-gradient(circle at 80% 20%, #e0e7ff 0%, transparent 40%),
-        radial-gradient(circle at 10% 80%, #f3e8ff 0%, transparent 40%);
+                radial-gradient(circle at 10% 80%, #f3e8ff 0%, transparent 40%);
+    gap: 40px; /* Added gap for better spacing during shrink */
 }
 
 .hero .hero-text {
     flex: 1;
     max-width: 600px;
+    z-index: 2;
 }
 
 .hero .hero-text h1 {
@@ -44,58 +53,45 @@
     color: white;
     box-shadow: 0 15px 30px rgba(36, 76, 236, 0.3);
 }
-/* 
-.btn-primary:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 20px 40px rgba(36, 76, 236, 0.5);
-} */
 
-/* HERO 3D VISUAL */
-.hero-visual {
+/* HERO RIGHT / VIDEO WRAPPER */
+.hero-right {
     flex: 1;
-    perspective: 1000px;
+    position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.mockup-3d {
-    width: 400px;
-    height: 500px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 20px 40px 80px rgba(0, 0, 0, 0.1);
-    transform: rotateY(-25deg) rotateX(10deg);
-    transition: 0.6s;
-    padding: 30px;
+.video-wrapper {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    /* transform: perspective(1000px) rotateY(-15deg); */
+}
+
+.video-wrapper video {
+    width: 100%;
+    display: block;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 20px;
+    left: -20px;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 16px;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    position: relative;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index: 3;
 }
 
-.mockup-3d:hover {
-    transform: rotateY(-10deg) rotateX(5deg) scale(1.02);
-}
-
-.m-circle {
-    width: 60px;
-    height: 60px;
-    background: #f1f5f9;
-    border-radius: 50%;
-}
-
-.m-line {
-    height: 10px;
-    background: #f1f5f9;
-    border-radius: 5px;
-}
-
-.m-line.accent {
-    background: #e0e7ff;
-    width: 60%;
-}
-
-/* --- 3D FEATURES SECTION --- */
+/* --- FEATURES SECTION --- */
 .features {
     padding: 120px 8%;
     background: #fcfcfd;
@@ -133,9 +129,9 @@
 }
 
 .feature-card:hover {
-    /* transform: translateY(-20px) rotateX(8deg) rotateY(-5deg); */
     box-shadow: 0 40px 70px rgba(36, 76, 236, 0.1);
     border-color: rgba(36, 76, 236, 0.2);
+    transform: translateY(-10px);
 }
 
 .feature-icon {
@@ -155,7 +151,6 @@
 .feature-card:hover .feature-icon {
     background: var(--primary);
     color: white;
-    transform: translateZ(40px);
 }
 
 .feature-card h3 {
@@ -168,4 +163,90 @@
     color: var(--gray);
     line-height: 1.7;
     font-size: 16px;
+}
+
+/* --- RESPONSIVE QUERIES --- */
+
+/* Tablets and Small Desktops */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 100px 5% 60px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero .hero-text {
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .hero .hero-text h1 {
+        font-size: 56px;
+    }
+
+    .cta-group {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .hero .btn {
+        margin-left: 0 !important; /* Overriding inline style */
+    }
+
+    .video-wrapper {
+        transform: none; /* Remove tilt for cleaner mobile viewing */
+        max-width: 100%;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .hero .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .section-header h2 {
+        font-size: 32px;
+    }
+
+    .features {
+        padding: 80px 5%;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+
+    .feature-card {
+        padding: 35px 25px;
+    }
+
+    .hero-right {
+        width: 100%;
+    }
+
+    .floating-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        width: max-content;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero .hero-text h1 {
+        font-size: 34px;
+    }
+
+    .cta-group .btn {
+        width: 100%; /* Full width buttons on tiny screens */
+    }
+
+    .hero-text p {
+        font-size: 16px !important;
+    }
 }
